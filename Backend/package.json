@@ -5,7 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "server": "nodemon index.js",
+    "deploy:lb01": "../deploy-lb01.sh",
+    "deploy:web01": "../deploy-web01.sh",
+    "deploy:web02": "../deploy-web02.sh",
+    "deploy:universal": "../deploy-universal.sh"
   },
   "keywords": [],
   "author": "",

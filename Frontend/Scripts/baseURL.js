@@ -1,5 +1,35 @@
+// Dynamic base URL configuration for different deployment environments
+const getBaseURL = () => {
+    // Check if running in a browser environment
+    if (typeof window !== 'undefined') {
+        // Priority 1: Environment variable (if available)
+        const envBaseURL = window.REACT_APP_API_BASE_URL || window.API_BASE_URL;
+        if (envBaseURL) {
+            return envBaseURL;
+        }
+        
+        // Priority 2: Current domain and port for same-server deployment
+        const { protocol, hostname, port } = window.location;
+        
+        // If accessing via standard HTTP/HTTPS ports or custom port
+        if (port && port !== '80' && port !== '443') {
+            return `${protocol}//${hostname}:${port}`;
+        } else {
+            return `${protocol}//${hostname}`;
+        }
+    }
+    
+    // Fallback for Node.js or non-browser environments
+    return process.env.API_BASE_URL || 'http://localhost:8080';
+};
+
 // Base URL for API endpoints
-export const baseURL = 'http://localhost:8080';
+export const baseURL = getBaseURL();
+
+// Log the detected base URL for debugging
+if (typeof window !== 'undefined') {
+    console.log('iTABAZA API Base URL:', baseURL);
+}
 
 // API endpoints
 export const API_ENDPOINTS = {

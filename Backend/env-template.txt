@@ -12,9 +12,20 @@ EMAIL_PASS=your_gmail_app_password
 
 # Server Configuration
 PORT=8080
+HOST=0.0.0.0
 NODE_ENV=development
+
+# Deployment Configuration
+# SERVER_DOMAIN=your-domain.com (or IP address like 54.235.237.101)
+# ALLOWED_ORIGINS=http://your-domain.com,https://your-domain.com,http://54.235.237.101:8080
+# ALLOW_ALL_ORIGINS=false (set to true only for development)
+
+# For production deployment, uncomment and configure:
+# NODE_ENV=production
+# SERVER_DOMAIN=54.235.237.101
+# ALLOWED_ORIGINS=http://54.235.237.101:8080,https://54.235.237.101:8080
 
 # Redis Configuration (optional - currently commented out)
 # redisPassword=your_redis_password
 # redisHost=your_redis_host
-# redisPort=your_redis_port 
+# redisPort=your_redis_port
